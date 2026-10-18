@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" sizes="192x192" href="https://static.wixstatic.com/ficons/b8c336_67d39114bac644f08cdd8e3b253517e6~mv2.ico" type="image/x-icon">
+	<title>PT Putra Mutiara Jaya</title>
+	<style>
+		#app {
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+<iframe id="app"></iframe>
+<script>
+const iframe = document.getElementById('app');
+iframe.setAttribute("src", location.href.replace("https://putramutiarajaya.id", "https://pmjaya.wixstudio.com/site"));
+
+iframe.addEventListener('load', function() {
+    try {
+        // Access the current URL of the iframe
+        const currentURL = iframe.contentWindow.location.href;
+        console.log("Iframe navigated to:", currentURL);
+        location.href = currentURL;
+    } catch (error) {
+        console.error("Security error (likely redirected cross-origin):", error);
+    }
+});
+</script>
+</body>
+</html>
